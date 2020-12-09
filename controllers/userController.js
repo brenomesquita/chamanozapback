@@ -11,6 +11,7 @@ const {
   whatIsYourCep,
   whatIsYourComplement,
   whatIsYourHouseNumber,
+  payment,
 } = chatResponses;
 
 const botMessage = (name, message, next, time, username = '') => 
@@ -77,6 +78,17 @@ const registerUser = async (io) => {
       chatResponses[whatIsYourHouseNumber.next].name,
       chatResponses[whatIsYourHouseNumber.next].message,
       whatIsYourHouseNumber.next,
+      new Date(),
+      username,
+    ));
+  });
+
+  io.on('payment', async ({ message }) => {
+    // registerComplement(message);
+    io.emit('botMessage', botMessage(
+      chatResponses[payment.next].name,
+      chatResponses[payment.next].message,
+      payment.next,
       new Date(),
       username,
     ));

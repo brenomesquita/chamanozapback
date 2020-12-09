@@ -10,7 +10,7 @@ module.exports = {
   confirmPhoneNumber: {
     name: 'Chama no zap',
     title: 'Confirmar número de telefone',
-    message: 'Beleeza :), então me envie seu número pra eu te avisar quando o pedido estiver saindo',
+    message: 'Beleeza :), então me envie seu número com DDD pra eu te avisar quando o pedido estiver saindo.',
     next: 'whatIsYourCep',
   },
   whatIsYourCep: {
@@ -29,12 +29,20 @@ module.exports = {
   whatIsYourHouseNumber: {
     name: 'Chama no zap',
     title: 'Identificação da área micro do usuário',
-    message: 'E qual o número da casa que o pedido vai ser entregue?',
-    next: 'none'
+    message: 'E qual o número que o pedido vai ser entregue?',
+    next: 'payment'
   },
-  // listQuantity: {
-  //   title: 'Identificação de quantidade',
-  //   message: 'Agora que você já escolheu seus produtos, digite a quantidade para cada um deles',
-  //   fail: ''
-  // },
+  payment: {
+    name: 'Chama no zap',
+    title: 'Pagamento',
+    message: 'Certo! Pra gente confirmar seu pedido, faça o pagamento com uma transferência PIX com a chave "chamano@zap.com", estamos no aguardo. É rápido e seguro, não se preocupe!',
+    next: 'finally'
+  },
+  finally: {
+    name: 'Chama no zap',
+    title: 'Finalizar pedido',
+    message: ', já anotei seu pedido e ficará pronto em alguns minutos, assim que sair para entrega eu te aviso, ok? A HamburGueria Digital agradece sua preferência <3',
+    fail: '',
+    next: 'none',
+  },
 };
